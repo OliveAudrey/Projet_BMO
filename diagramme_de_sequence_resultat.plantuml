@@ -1,0 +1,16 @@
+
+@startuml
+actor Parieur
+participant "Système de Pari en Ligne" as System
+
+group #75f0c4 Cas d'utilisation : Sélectionner un résultat
+    Parieur -> System: Sélectionne un résultat
+    alt Résultats disponibles
+        System -> System: Récupère les résultats possibles pour le pari sélectionné
+        System --> Parieur: Affiche les résultats possibles
+    else Aucun résultat disponible
+        System -> System: Récupère les résultats possibles pour le pari sélectionné
+        System --> Parieur: Aucun résultat disponible pour ce pari
+    end
+end
+@enduml

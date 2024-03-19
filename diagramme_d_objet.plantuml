@@ -1,0 +1,43 @@
+@startuml
+
+object Parieur {
+    capitalInitial = 10000
+    jetons = 10000
+}
+
+object EvenementSportif {
+    sport = "Football"
+    options = ["Vainqueur", "Match nul"]
+}
+
+object TypePari {
+    nom = "Pari simple"
+}
+
+object Ticket {
+    evenementSportif = EvenementSportif
+    typePari = TypePari
+    resultatParie = "Vainqueur"
+    montant = 100
+}
+
+object Bookmaker {
+    parametres = ["Cotes", "Ecarts sur les scores", "Montant maximal d'un pari"]
+}
+
+object AlgorithmeCotes {
+    // Algorithme de calcul des cotes
+}
+
+Parieur -- Ticket : Soumettre
+
+Ticket -- Parieur : Débiter
+
+Ticket -- EvenementSportif : Sélectionner
+Ticket -- TypePari : Sélectionner 
+Ticket -- AlgorithmeCotes : CalculerCotes
+Bookmaker -- EvenementSportif : Déterminer
+Bookmaker -- TypePari : Déterminer
+Bookmaker -- AlgorithmeCotes : Fournir
+
+@enduml

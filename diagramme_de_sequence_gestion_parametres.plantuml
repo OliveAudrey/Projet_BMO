@@ -1,0 +1,20 @@
+@startuml
+actor Bookmaker
+participant "Système de Paris en Ligne" as System
+
+group #lavender Gestion des paramètres par le bookmaker - Nominal (définition des paramètres)
+Bookmaker -> System: Definition paramètres
+System -> Bookmaker: formulaire Definition paramètres
+Bookmaker --> System: Renvoie formulaire
+System -> System: Verifie formulaire paramètres
+System -> System: Formulaire paramètres
+System -> Bookmaker: " la Définition de paramètres a été créée"
+end
+group #lavender Gestion des paramètres par le bookmaker - Exceptionnel (Formulaire incorrect)
+Bookmaker -> System: Definition des paramètres
+System -> Bookmaker: Formulaire de definition de paramètres
+Bookmaker --> System: Renvoie le formulaire
+System -> System: Verification formulaire
+System -> Bookmaker: Echec: " Saisie incorrecte"
+end
+@enduml

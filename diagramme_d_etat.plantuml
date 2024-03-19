@@ -1,0 +1,13 @@
+@startuml
+[*] --> NonConnecte
+
+state NonConnecte {
+    [*] --> AttenteConnexion
+    AttenteConnexion --> Connecte : Connexion réussie
+    AttenteConnexion --> NonConnecte : Connexion échouée
+    state Connecte {
+        [*] --> AttenteDeconnexion
+        AttenteDeconnexion --> NonConnecte : Déconnexion
+    }
+}
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+actor Parieur
+participant "Système de Paris en Ligne" as System
+
+group #f6bcc7 Gestion du compte utilisateur - Nominal (recharge de jetons)
+Parieur -> System: Demande de rechargement de jetons
+System -> System: Traite la demande de recharge
+System -> Parieur: Confirmation de la recharge
+end
+
+group #f6bcc7 Gestion du compte utilisateur - Exceptionnel (solde insuffisant)
+Parieur -> System: Demande de pari
+System -> System: Vérifie le solde
+System --> Parieur: Solde insuffisant
+end

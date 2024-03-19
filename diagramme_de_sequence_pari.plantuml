@@ -1,0 +1,39 @@
+
+@startuml
+actor Parieur
+
+participant "Système de Paris en Ligne" as System
+participant "Pari en Ligne" as Pari
+participant "Ticket" as Ticket
+
+group Pari simple - Nominal
+Parieur -> System: Sélectionne le type de pari
+System -> Parieur: Formulaire de pari
+Parieur --> System: renvoie du formulaire
+System -> System: Verification du pari
+System -> Pari: Nouveau pari
+Pari -> Ticket: Création du ticket
+Ticket -> System: Ticket du pari créé
+System -> System: Ticket du pari créé
+System --> Parieur: "Votre pari a été créé"
+end
+
+group Pari simple - Exceptionnel (pari invalide)
+Parieur -> System: Sélectionne le type de pari
+System -> Parieur: Formulaire de pari
+Parieur --> System: renvoie du formulaire
+System -> System: Verification du formulaire
+System --> Parieur: "Votre pari est invalide"
+end
+
+group Pari simple - Exceptionnel (Annulation pari)
+Parieur -> System: Annulation du pari
+System -> Parieur: Formulaire d'annulation du pari
+Parieur --> System: renvoie du formulaire
+System -> System: Verification du pari
+System -> Pari: suppression pari
+Pari -> Ticket:suppression ticket
+Ticket -> System: Ticket du pari créé
+System --> Parieur: "Votre Ticket a été supprimé
+end
+@enduml

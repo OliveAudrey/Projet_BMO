@@ -1,0 +1,22 @@
+
+@startuml
+actor Parieur
+participant "Système de Paris en Ligne" as System
+
+group Connexion - Nominal
+Parieur -> System: Se connecter 
+System -> Parieur: Formulaire
+Parieur --> System: Renvoie formulaire rempli
+System -> System: Verification formulaire
+System --> Parieur: "Vous etes connecté"
+end
+
+group Connexion - Exceptionnel (echec)
+Parieur -> System: Se connecter 
+System -> Parieur: Formulaire
+Parieur --> System: Renvoie formulaire rempli
+System -> System: Verification formulaire
+System --> Parieur: "login ou mot de passe invalide"
+end
+
+@enduml
