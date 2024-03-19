@@ -1,0 +1,25 @@
+UseCaseDiagram [frame=true framecolor=steelblue label="Parif sportif en ligne"] {
+  attribute actor [color=red]
+  attribute usecase [fillcolor=paleturquoise]
+  actor a as "Bookmaker"
+ usecase u as "déterminer les évènements"
+  a -- u
+  usecase u1 as "définir les paramètres relatifs à ces évènements"
+  a -- u1
+  usecase u2 as "limiter le montant maximal"
+  a -- u2
+  
+  actor a1 as "Parieur"
+ usecase u4 as "Inscription/connexion"
+  a1 -- u4
+  usecase u6 as "sélectionner évènement sportif"
+  a1 -- u6
+  usecase u7 as "sélectionner un pari"
+  a1 -- u7
+  usecase u8 as "sélectionner le résultat du pari"
+  a1 -- u8
+  usecase u9 as "montant à parier"
+  a1 -- u9
+  usecase u10 as "soumission du ticket"
+  a1 -- u10
+}

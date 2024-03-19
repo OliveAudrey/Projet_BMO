@@ -1,0 +1,75 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+ abstract class Parieur {
+  private parieurId : int
+  private jetons : int
+  private nom : string
+  private prenom : string
+  private pseudo : String
+  private email : string
+  private password : string
+  public faire_un_pari()
+ }
+ class Pari_sportif {
+  private pariSportifId : int
+  private montant: int
+  private typesPari : string
+  public AjouterPari()
+  public SupprimerPari()
+ }
+ class Ticket {
+  private ticketId : int
+	private montantMax : int
+	private pariId : int
+	private miseJouee : int
+  private cote : float
+  public Create()
+  public Remove()
+  public Update()
+  public Delete()
+ }
+ class Evenement {
+  private evenementId : int
+  private dateEvenement : date
+  public Create()
+  public Remove()
+  public Update()
+  public Delete()
+
+ }
+  class Sport {
+  private sportId : int
+  private typesSports : String
+	private regles : String
+  public CreateSport()
+  public RemoveSport()
+  public UpdateSport()
+  public DeleteSport()
+  public CreateRegles()
+  public RemoveRegles()
+  public UpdateRegles()
+  public DeleteRegles()
+ }
+
+ class Bookmaker {
+  private bookmakerId : int
+  private nom : string
+ }
+ 
+ align {
+  Ticket
+  Bookmaker
+ }
+ align {
+  Pari_sportif
+  Evenement
+  Sport
+ }
+ 
+ Parieur "0..*" -- "0..*" Pari_sportif : "<Faire_un>"
+ Pari_sportif "*" -- "1" Ticket : "<Créer>"
+ Pari_sportif "1..*" -- "0..*" Evenement : "<Est_relatif>"
+ Sport "*" -- "1" Evenement :  "<Concerner>"
+ Evenement "0..*" -- "1" Bookmaker : "<Est_proposé_par>"
+
+  
+}
